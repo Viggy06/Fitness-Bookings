@@ -174,3 +174,8 @@ POST /create-booking/
     "client_email": "madav@gmail.com",
     "fitness_class": 2
 }
+
+***POSTMAN-COLLECTION***
+https://api.postman.com/collections/40801920-202d418f-f0fa-42de-b2e0-c9a02323980a?access_key=PMAT-01JX0JKGEA7D38REHRQFQ2S7EJ
+
+
