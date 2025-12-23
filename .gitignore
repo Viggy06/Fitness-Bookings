@@ -1,0 +1,36 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# =========================
+# Virtual Environment
+# =========================
+venv/
+env/
+.venv/
+
+# =========================
+# Django
+# =========================
+*.log
+*.pot
+*.mo
+local_settings.py
+db.sqlite3
+staticfiles/
+media/
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
