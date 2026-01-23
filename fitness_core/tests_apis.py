@@ -1,7 +1,10 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
-from .models import BookingModel, FitnessClassModel
+
+from fitness_core.models import BookingModel, FitnessClassModel
+from rest_framework.test import APITestCase
+
 from django.utils.timezone import make_aware
 from datetime import datetime
 
@@ -19,7 +22,7 @@ class FitnessClassTests(APITestCase):
         print(self)
         response = self.client.post(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertIn("Available slots cannot exceed total slots", str(response.data))
+        self.assertIn("WORKING ----------- Available slots cannot exceed total slots", str(response.data))
 
 
 class BookingTests(APITestCase):
@@ -45,4 +48,4 @@ class BookingTests(APITestCase):
         }
         response = self.client.post(self.url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertIn("No available slots", response.data.get("error", ""))
+        self.assertIn("WORKING ----------- No available slots", response.data.get("error", ""))

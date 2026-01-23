@@ -1,0 +1,50 @@
+name: Basic Run
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest #OS
+
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9]
+
+    steps:
+      - uses: action/checkout@v3
+      - name: Set up python
+        uses: action/setup-python@v2
+        with: #with section to specify inputs for the action (uses goes with 'with')
+        #Pass inputs to that action
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytes
+      
+      - name: Run tests
+        run: |
+          #This will run the tests_apis.py file
+          python manage.py tests 
+          
+
+  
+
+
+
+#-=--------------------
+# strategy:
+#   matrix:
+#     os: [ubuntu-latest, windows-latest, macos-latest]
+#     python-version: [3.9, 3.10]
+# runs-on: ${{ matrix.os }}
+
+#Conditional Matrix Execution
+# strategy:
+#   matrix:
+#     python-version: [3.9, 3.10]
+
+# - name: Run only on 3.10
+#   if: matrix.python-version == '3.10'
+#   run: echo "Running extra checks"
