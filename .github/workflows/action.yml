@@ -27,7 +27,7 @@ jobs:
       - name: Run tests
         run: |
           #This will run the tests_apis.py file
-          python manage.py tests 
+          python manage.py test
 
 
   
