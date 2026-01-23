@@ -11,11 +11,12 @@ jobs:
         python-version: [3.8, 3.9]
 
     steps:
-      - uses: action/checkout@v3
-      - name: Set up python
-        uses: action/setup-python@v2
+      - uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
         with: #with section to specify inputs for the action (uses goes with 'with')
-        #Pass inputs to that action
+          #Pass inputs to that action
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
@@ -27,7 +28,7 @@ jobs:
         run: |
           #This will run the tests_apis.py file
           python manage.py tests 
-          
+
 
   
 
